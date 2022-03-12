@@ -14,11 +14,11 @@ jobs:
           virtualenv venv
           source venv/bin/activate
       - name: Install dependencies
-      - run: | 
+        run: | 
           pip install dvc[gs]
           pip install -r requirements_text.text
       - name: Test api
-      - run: |
+        run: |
           export GOOGLE_APPLICATION_CREDENTIALS=(python utilities/setter.py)
           dvc pull model/model.pkl -r model-track
           pytest test.py 
