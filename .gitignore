@@ -132,5 +132,4 @@ dmypy.json
 *.pkl
 *.csv
 /dataset_raw_data
-*.txt
 *.png
