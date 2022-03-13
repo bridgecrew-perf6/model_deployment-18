@@ -26,15 +26,15 @@ jobs:
            source venv/bin/activate
            pip install -r src/requirements.txt
            export GOOGLE_APPLICATION_CREDENTIALS=$(python utilities/setter.py)
-           dvc pull model/model.pkl.dvc -r model-tracker
+           dvc pull model/model.pkl.dvc -r model-track
            dvc unprotect model/model.pkl
            dvc repro -f 
            echo "Training Completed"
-           dvc add model/model.pkl -r model-tracker --to-remote
-           dvc push model/model.pkl.dvc -r model-tracker
+           dvc add model/model.pkl -r model-track --to-remote
+           dvc push model/model.pkl.dvc -r model-track
       - name: Commit .dvc file changes
         run: |
-          git config --local user.email "ing.gersonp@gmail.com"
+          git config --local user.email "nicolasbuitragobautista@gmail.com"
           git config --local user.name "github-actions[bot]"
           git add model/model.pkl.dvc
           git commit -m "Updating model serialization"
